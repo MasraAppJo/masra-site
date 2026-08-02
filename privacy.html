@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سياسة الخصوصية — مسرى | Privacy Policy — Masra</title>
+<meta name="description" content="سياسة الخصوصية لتطبيق مسرى — Privacy Policy for the Masra app.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stone50:#FAF7F0; --stone100:#F4EFE6; --stone200:#E8E0D0; --stone300:#D8CCB4;
+    --ink:#1F2A37; --muted:#5B6673; --olive:#5F7A4A; --gold:#C9A227; --navy:#16324F;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--stone100); color:var(--ink);
+    font-family:'Cairo',system-ui,-apple-system,'Segoe UI',sans-serif;
+    line-height:1.85; font-size:17px;
+  }
+  header{
+    background:var(--navy); color:var(--stone50); padding:40px 20px 32px; text-align:center;
+  }
+  header .mark{
+    width:56px;height:56px;margin:0 auto 14px;border-radius:14px;
+    background:var(--gold);color:var(--navy);display:flex;align-items:center;
+    justify-content:center;font-weight:700;font-size:24px;
+  }
+  header h1{margin:0;font-size:26px;font-weight:700}
+  header p{margin:6px 0 0;opacity:.75;font-size:15px}
+  .langbar{display:flex;gap:8px;justify-content:center;margin-top:18px}
+  .langbar button{
+    font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;
+    padding:7px 20px;border-radius:999px;border:1px solid rgba(250,247,240,.35);
+    background:transparent;color:var(--stone50);transition:.15s;
+  }
+  .langbar button[aria-pressed="true"]{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+  main{max-width:780px;margin:0 auto;padding:28px 20px 60px}
+  article{
+    background:var(--stone50);border:1px solid var(--stone200);
+    border-radius:16px;padding:32px 28px;
+  }
+  h2{font-size:20px;margin:34px 0 10px;color:var(--navy);border-top:1px solid var(--stone200);padding-top:22px}
+  article > h2:first-of-type{border-top:0;padding-top:0;margin-top:8px}
+  ul{padding-inline-start:22px;margin:10px 0}
+  li{margin:6px 0}
+  a{color:var(--olive)}
+  strong{color:var(--navy)}
+  .updated{
+    display:inline-block;background:var(--stone200);color:var(--muted);
+    padding:5px 14px;border-radius:999px;font-size:14px;margin-bottom:8px;
+  }
+  .note{
+    background:#FBF3D9;border:1px solid var(--gold);border-radius:12px;
+    padding:14px 18px;margin:18px 0;font-size:16px;
+  }
+  footer{text-align:center;color:var(--muted);font-size:14px;padding:0 20px 44px}
+  footer a{margin:0 8px}
+  [hidden]{display:none !important}
+  [lang="en"]{direction:ltr;text-align:left}
+  [lang="en"] ul{padding-inline-start:22px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="mark">م</div>
+  <h1>مسرى · Masra</h1>
+  <p>سياسة الخصوصية · Privacy Policy</p>
+  <div class="langbar">
+    <button id="btn-ar" aria-pressed="true">العربية</button>
+    <button id="btn-en" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<main>
+
+<article id="doc-ar" lang="ar" dir="rtl">
+  <span class="updated">آخر تحديث: ٢ آب/أغسطس ٢٠٢٦</span>
+
+  <p>يحترم تطبيق <strong>مسرى</strong> («نحن»، «التطبيق») خصوصيتك. توضّح هذه السياسة البيانات التي نجمعها، وسبب جمعها، وما هي حقوقك.</p>
+
+  <h2>١. ما الذي نجمعه</h2>
+  <p>عند إنشاء حساب، نخزّن:</p>
+  <ul>
+    <li><strong>البريد الإلكتروني</strong> — لتسجيل الدخول واستعادة الحساب</li>
+    <li><strong>الاسم الظاهر</strong> — يظهر داخل التطبيق وللمشرفين</li>
+    <li><strong>بيانات المصادقة</strong> — مشفّرة ولا يمكننا الاطلاع عليها كنص صريح (تُدار عبر Supabase Auth)</li>
+  </ul>
+  <p>وعند استخدامك للتطبيق، نخزّن:</p>
+  <ul>
+    <li><strong>المحفوظات</strong> — العناصر التي تحفظها للرجوع إليها لاحقًا</li>
+    <li><strong>تقدّم الدورات</strong> — آخر دورة أو حلقة شاهدتها</li>
+    <li><strong>إجابات التحديات</strong> — لاحتساب نتائج المسابقات اليومية</li>
+    <li><strong>النقاط والسلسلة اليومية</strong> — إحصاءات التحفيز الخاصة بك</li>
+    <li><strong>تفضيلات الإعدادات</strong> — اللغة وحجم الخط وتنبيهات الإشعارات (تُحفظ على جهازك فقط)</li>
+  </ul>
+  <p>ولا نجمع:</p>
+  <ul>
+    <li>اسمك الحقيقي أو رقم هاتفك أو عنوانك</li>
+    <li>موقعك الجغرافي (إلا إذا اخترت تفعيل ميزة القبلة مستقبلًا)</li>
+    <li>جهات اتصالك أو صورك أو ملفاتك</li>
+  </ul>
+
+  <h2>١-أ. الإعلانات</h2>
+  <p>يعرض مسرى إعلانات بانر عبر <strong>Google AdMob</strong> لإبقاء التطبيق مجانيًا.</p>
+  <ul>
+    <li>قد تصل AdMob إلى <strong>معرّف الإعلانات</strong> الخاص بجهازك وبيانات تقنية عامة (نوع الجهاز، إصدار النظام، عنوان IP) لعرض الإعلانات وقياسها. تتم هذه العملية بالكامل لدى Google، ولا نستلم هذه البيانات ولا نخزّنها.</li>
+    <li>الإعلانات مقيّدة داخل التطبيق بتصنيف <strong>«الجمهور العام» (PG)</strong> من Google.</li>
+    <li>لا نرسل بريدك الإلكتروني أو اسمك أو محفوظاتك أو تقدّمك أو أي بيانات حساب إلى المعلنين.</li>
+    <li>يمكنك إعادة تعيين معرّف الإعلانات أو حذفه في أي وقت من إعدادات جهازك (أندرويد: الإعدادات ← Google ← الإعلانات).</li>
+  </ul>
+  <p>تخضع معالجة Google لهذه البيانات لـ <a href="https://policies.google.com/privacy">سياسة خصوصية Google</a>.</p>
+
+  <h2>٢. لماذا نجمعها</h2>
+  <ul>
+    <li><strong>المصادقة وميزات الحساب</strong>: البريد وكلمة المرور لتسجيل دخولك</li>
+    <li><strong>التخصيص</strong>: ربط تقدّمك ومحفوظاتك بحسابك</li>
+    <li><strong>تحسين التطبيق</strong>: مؤشرات إجمالية غير معرِّفة للهوية (وتقارير أعطال مجهولة إن وافقت عليها)</li>
+    <li><strong>الإشراف على المحتوى</strong>: لإزالة المشاركات المسيئة أو الخارجة عن الموضوع</li>
+  </ul>
+
+  <h2>٣. أين تُحفظ البيانات</h2>
+  <p>تُخزَّن جميع البيانات على <strong>Supabase</strong> (قاعدة بيانات PostgreSQL والتخزين) في منطقتي الاتحاد الأوروبي/الولايات المتحدة. وتضمن سياسات أمان الصفوف (RLS) أن:</p>
+  <ul>
+    <li>تطّلع أنت على <strong>ملفك وبياناتك فقط</strong> — الحساب والمحفوظات والتقدّم والنقاط</li>
+    <li>حسابات المشرفين وحدها يمكنها الاطلاع على البيانات الإجمالية للمستخدمين</li>
+    <li>مفتاح الوصول المجهول الخاص بالتطبيق لا يستطيع تجاوز هذه السياسات</li>
+  </ul>
+
+  <h2>٤. أطراف ثالثة</h2>
+  <ul>
+    <li><strong>Supabase Inc.</strong> — معالج قاعدة البيانات والمصادقة وتخزين الملفات</li>
+    <li><strong>Google AdMob</strong> — عرض الإعلانات (انظر البند ١-أ)</li>
+    <li><strong>Google Fonts</strong> — تحميل الخط العربي (Cairo) أثناء التشغيل</li>
+    <li><strong>Aladhan API / Hebcal</strong> — بيانات التقويم الهجري والإسلامي العامة (لا تُرسل بيانات شخصية)</li>
+    <li><strong>Microsoft Azure Translator و LibreTranslate و MyMemory</strong> — ترجمة المحتوى من العربية إلى الإنجليزية (لا تُرسل بيانات شخصية، فقط نصوص المحتوى العام)</li>
+    <li><strong>YouTube / Vimeo</strong> — مشغّلات الفيديو المدمجة لمحتوى الدورات (تنطبق سياسات خصوصيتها عند تشغيل الفيديو)</li>
+  </ul>
+  <p>نحن <strong>لا نبيع</strong> بياناتك ولا نؤجّرها ولا نشاركها مع وسطاء البيانات.</p>
+
+  <h2>٥. حقوقك</h2>
+  <ul>
+    <li><strong>الاطلاع على بياناتك</strong>: يمكنك طلب نسخة في أي وقت عبر البريد أدناه</li>
+    <li><strong>حذف حسابك</strong>: من <strong>الإعدادات ← حذف الحساب</strong> مباشرةً داخل التطبيق. يؤدي ذلك إلى إزالة حسابك وكل بياناتك نهائيًا (الملف الشخصي، المحفوظات، التقدّم، النقاط، إجابات التحديات). الإجراء فوري ولا يمكن التراجع عنه.</li>
+    <li><strong>تصحيح بياناتك</strong>: يمكنك تعديل اسمك وبريدك من الإعدادات</li>
+    <li><strong>سحب الموافقة</strong>: حذف الحساب يزيل جميع بياناتك فورًا، وتُمحى النسخ الاحتياطية المشفّرة خلال ٣٠ يومًا</li>
+  </ul>
+
+  <h2>٦. الأطفال</h2>
+  <p>مسرى مناسب لجميع الأعمار. ولا نجمع عن قصد بيانات من أطفال دون سن ١٣ عامًا بغير موافقة وليّ الأمر. إذا كنت تعتقد أن طفلًا أنشأ حسابًا، فيرجى مراسلتنا وسنحذفه.</p>
+
+  <h2>٧. تعديلات السياسة</h2>
+  <p>قد نحدّث هذه السياسة. وسيُعلَن عن أي تغييرات جوهرية داخل التطبيق قبل ١٤ يومًا على الأقل من سريانها. ويعكس تاريخ «آخر تحديث» أعلاه النسخة السارية دائمًا.</p>
+
+  <h2>٨. التواصل</h2>
+  <p>لأي استفسار عن الخصوصية أو طلب بيانات أو شكوى:</p>
+  <p><strong>البريد الإلكتروني:</strong> <a href="mailto:privacy@masra.app">privacy@masra.app</a></p>
+  <p>وإذا لم تكن راضيًا عن ردّنا، فيمكنك التواصل مع هيئة حماية البيانات في بلدك.</p>
+</article>
+
+<article id="doc-en" lang="en" dir="ltr" hidden>
+  <span class="updated">Last updated: 2 August 2026</span>
+
+  <p>Masra ("we", "us", "the app") respects your privacy. This policy explains what data we collect, why, and what your rights are.</p>
+
+  <h2>1. What we collect</h2>
+  <p>When you create an account, we store:</p>
+  <ul>
+    <li><strong>Email address</strong> — for sign-in and account recovery</li>
+    <li><strong>Display name</strong> — shown in the app and to admins</li>
+    <li><strong>Authentication credentials</strong> — hashed and never accessible to us in plaintext (handled by Supabase Auth)</li>
+  </ul>
+  <p>When you use the app, we store:</p>
+  <ul>
+    <li><strong>Bookmarks</strong> — content items you save for later</li>
+    <li><strong>Course progress</strong> — which course/episode you last viewed</li>
+    <li><strong>Challenge answers</strong> — for daily quiz scoring</li>
+    <li><strong>Points &amp; streak</strong> — your gamification stats</li>
+    <li><strong>Settings preferences</strong> — language, text size, notification toggles (stored on your device only)</li>
+  </ul>
+  <p>We do <strong>not</strong> collect:</p>
+  <ul>
+    <li>Your real name, phone number, or address</li>
+    <li>Your location (unless you opt in to a future Qibla feature)</li>
+    <li>Your contacts, photos, or files</li>
+  </ul>
+
+  <h2>1a. Advertising</h2>
+  <p>Masra shows banner advertisements supplied by <strong>Google AdMob</strong> to keep the app free.</p>
+  <ul>
+    <li>AdMob may access your device's <strong>advertising identifier</strong> and coarse technical data (device type, OS version, IP address) to serve and measure ads. This is handled entirely by Google; we never receive or store it.</li>
+    <li>Ads are restricted in-app to Google's <strong>"General audiences" (PG)</strong> content rating.</li>
+    <li>We do <strong>not</strong> send your email, name, bookmarks, progress, or any account data to advertisers.</li>
+    <li>You can reset or delete your advertising ID at any time in your device settings (Android: Settings → Google → Ads).</li>
+  </ul>
+  <p>Google's handling of this data is governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+
+  <h2>2. Why we collect it</h2>
+  <ul>
+    <li><strong>Authentication &amp; account features</strong>: email + password to sign you in</li>
+    <li><strong>Personalisation</strong>: progress and bookmarks tied to your account</li>
+    <li><strong>App improvement</strong>: aggregate, non-personally-identifiable metrics (anonymous crash reports if you opt in)</li>
+    <li><strong>Content moderation</strong>: to remove abusive or off-topic submissions</li>
+  </ul>
+
+  <h2>3. Where it lives</h2>
+  <p>All data is stored on <strong>Supabase</strong> (PostgreSQL + Storage) in the EU/US region. Row-Level Security (RLS) policies ensure:</p>
+  <ul>
+    <li>You can read <strong>only your own</strong> profile, bookmarks, progress, and points</li>
+    <li>Only admin accounts can read aggregate user data</li>
+    <li>The app's anonymous API key cannot bypass these policies</li>
+  </ul>
+
+  <h2>4. Third parties</h2>
+  <ul>
+    <li><strong>Supabase Inc.</strong> — database, authentication and file storage processor</li>
+    <li><strong>Google AdMob</strong> — serves banner advertisements (see section 1a)</li>
+    <li><strong>Google Fonts</strong> — serves the Arabic typeface (Cairo) at runtime</li>
+    <li><strong>Aladhan API / Hebcal</strong> — public Islamic and Hijri calendar data (no personal data sent)</li>
+    <li><strong>Microsoft Azure Translator, LibreTranslate, MyMemory</strong> — translate Arabic content to English (no personal data sent; only public content text)</li>
+    <li><strong>YouTube / Vimeo</strong> — embedded video players for course content (their privacy policies apply when you play a video)</li>
+  </ul>
+  <p>We do <strong>not</strong> sell, share, or rent your data to advertisers or data brokers.</p>
+
+  <h2>5. Your rights</h2>
+  <ul>
+    <li><strong>Access your data</strong>: request a copy at any time via the email below</li>
+    <li><strong>Delete your account</strong>: via <strong>Settings → Delete Account</strong>, directly in the app. This permanently removes your account and all associated data (profile, bookmarks, progress, points, challenge answers). The action is immediate and cannot be undone.</li>
+    <li><strong>Correct your data</strong>: edit your name and email from Settings</li>
+    <li><strong>Withdraw consent</strong>: deleting your account permanently removes all your data immediately; routine encrypted backups are purged within 30 days</li>
+  </ul>
+
+  <h2>6. Children</h2>
+  <p>Masra is suitable for all ages. We do not knowingly collect data from children under 13 without parental consent. If you believe a child has created an account, please contact us and we will delete it.</p>
+
+  <h2>7. Changes to this policy</h2>
+  <p>We may update this policy. Material changes will be announced in-app at least 14 days before taking effect. The "Last updated" date above always reflects the current version.</p>
+
+  <h2>8. Contact</h2>
+  <p>For privacy questions, data requests, or complaints:</p>
+  <p><strong>Email:</strong> <a href="mailto:privacy@masra.app">privacy@masra.app</a></p>
+  <p>If you are not satisfied with our response, you may contact your local data protection authority.</p>
+</article>
+
+</main>
+
+<footer>
+  <a href="index.html">الرئيسية · Home</a>·
+  <a href="terms.html">شروط الاستخدام · Terms</a>
+</footer>
+
+<script>
+  (function () {
+    var ar = document.getElementById('doc-ar'), en = document.getElementById('doc-en');
+    var bAr = document.getElementById('btn-ar'), bEn = document.getElementById('btn-en');
+    function set(lang) {
+      var isAr = lang === 'ar';
+      ar.hidden = !isAr; en.hidden = isAr;
+      bAr.setAttribute('aria-pressed', String(isAr));
+      bEn.setAttribute('aria-pressed', String(!isAr));
+      document.documentElement.lang = lang;
+      document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+      try { localStorage.setItem('masra-lang', lang); } catch (e) {}
+    }
+    bAr.addEventListener('click', function () { set('ar'); });
+    bEn.addEventListener('click', function () { set('en'); });
+    var saved = null;
+    try { saved = localStorage.getItem('masra-lang'); } catch (e) {}
+    set(saved || 'ar');
+  })();
+</script>
+
+</body>
+</html>
