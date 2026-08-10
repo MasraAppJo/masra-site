@@ -2,15 +2,15 @@
   "schema": 1,
   "packs": [
     {
-      "id": "demo",
+      "id": "gates",
       "version": 1,
       "title": {
-        "ar": "حزمة تجريبية",
-        "en": "Demo pack"
+        "ar": "أبواب الأقصى",
+        "en": "Gates of Al-Aqsa"
       },
-      "sizeBytes": 556,
-      "url": "https://masraappjo.github.io/masra-site/game/packs/demo.v1.zip",
-      "sha256": "8bdb925500049610a426e9adec0576dc4029b598a8150bea07ab3b3113bf714d"
+      "sizeBytes": 1045,
+      "url": "https://masraappjo.github.io/masra-site/game/packs/gates.v1.zip",
+      "sha256": "e0678f842a7fea7e425e06dd662a34c8357021b85e7baed7ee76888646935a0f"
     }
   ]
 }
