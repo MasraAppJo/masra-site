@@ -5,171 +5,321 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>النسخة التجريبية — مسرى | Masra Beta</title>
 <meta name="description" content="انضم لاختبار تطبيق مسرى على أندرويد — Join the Masra Android beta.">
+<meta name="theme-color" content="#12243A">
+<meta property="og:title" content="مسرى · النسخة التجريبية | Masra Beta">
+<meta property="og:description" content="جرّب تطبيق مسرى عن القدس والأقصى قبل إطلاقه — Try Masra before launch.">
+<meta property="og:image" content="https://masraappjo.github.io/masra-site/beta-assets/dome.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="beta-assets/dome.webp">
 <style>
   :root{
-    --stone50:#FAF7F0; --stone100:#F4EFE6; --stone200:#E8E0D0; --stone300:#D8CCB4;
-    --ink:#1F2A37; --muted:#5B6673; --olive:#5F7A4A; --gold:#C9A227; --navy:#16324F;
+    --navy900:#12243A; --navy800:#1A324C; --navy700:#2C4865; --navy500:#7A8DA4;
+    --gold:#FABE2F; --gold600:#E5A41E; --gold700:#C78A12; --goldSoft:#FEF4D6;
+    --stone:#F4EFE6; --stone50:#FAF7F0; --stone200:#E8E0D0; --stone300:#D6CBB4;
+    --olive:#6B7A46; --oliveSoft:#EAEDDD; --sky:#91B2D6; --onNavy:#F4EFE6;
+    --ink:#12243A; --muted:#4F6480;
+    --oct:polygon(29% 0,71% 0,100% 29%,100% 71%,71% 100%,29% 100%,0 71%,0 29%);
+    --star:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23FABE2F' stroke-opacity='.09' stroke-width='1.2'%3E%3Crect x='22' y='22' width='28' height='28'/%3E%3Crect x='22' y='22' width='28' height='28' transform='rotate(45 36 36)'/%3E%3Cpath d='M0 36h8M64 36h8M36 0v8M36 64v8'/%3E%3C/g%3E%3C/svg%3E");
   }
   *{box-sizing:border-box}
-  body{
-    margin:0; background:var(--stone100); color:var(--ink);
-    font-family:'Cairo',system-ui,-apple-system,'Segoe UI',sans-serif;
-    line-height:1.85; font-size:17px;
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--stone);color:var(--ink);font-family:'Cairo',system-ui,sans-serif;font-size:17px;line-height:1.75}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  html[lang="ar"] [lang="en"]:not(html),html[lang="en"] [lang="ar"]:not(html){display:none !important}
+  html[lang="en"] body{line-height:1.6}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--navy900) var(--star);color:var(--onNavy);position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:auto 0 0;height:120px;background:linear-gradient(transparent,rgba(18,36,58,.9));pointer-events:none}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;position:relative;z-index:2}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:19px}
+  .brand img{width:58px;height:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
+  .lang{display:flex;background:rgba(244,239,230,.08);border:1px solid rgba(244,239,230,.18);border-radius:999px;padding:3px}
+  .lang button{font:600 14px 'Cairo',sans-serif;color:var(--onNavy);background:none;border:0;border-radius:999px;padding:6px 16px;cursor:pointer}
+  .lang button[aria-pressed="true"]{background:var(--gold);color:var(--navy900)}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;padding:28px 0 0;position:relative;z-index:2}
+  .hero-copy{padding-bottom:84px}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(250,190,47,.12);border:1px solid rgba(250,190,47,.35);color:var(--gold);font-weight:700;font-size:14px;padding:5px 14px;border-radius:999px}
+  .badge i{width:8px;height:8px;background:var(--gold);clip-path:var(--oct)}
+  h1{font-size:clamp(34px,5.4vw,58px);line-height:1.2;margin:18px 0 16px;font-weight:800;letter-spacing:-.01em}
+  html[lang="en"] h1{line-height:1.08}
+  .hero p.sub{font-size:clamp(17px,1.6vw,20px);color:#D8D1C3;max-width:34ch;margin:0 0 30px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:17px;padding:13px 26px;border-radius:14px;background:var(--gold);color:var(--navy900);box-shadow:0 6px 0 var(--gold700);transition:transform .15s ease-out,box-shadow .15s ease-out}
+  .btn:hover{transform:translateY(2px);box-shadow:0 4px 0 var(--gold700)}
+  .btn:active{transform:translateY(5px);box-shadow:0 1px 0 var(--gold700)}
+  .btn svg{width:20px;height:20px;flex:none}
+  html[dir="rtl"] .btn .flip{transform:scaleX(-1)}
+  .ghost{color:var(--onNavy);font-weight:600;font-size:15px;opacity:.8}
+  .facts{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px;color:#B9C3CF;font-size:15px}
+  .facts span{display:flex;align-items:center;gap:8px}
+  .facts svg{width:18px;height:18px;color:var(--gold)}
+
+  .arch-wrap{position:relative;justify-self:center;width:min(100%,400px)}
+  .arch{aspect-ratio:760/1000;background:var(--gold);padding:7px 7px 0;clip-path:url(#archClip)}
+  .arch img{width:100%;height:100%;object-fit:cover;object-position:50% 0;clip-path:url(#archClip)}
+  .arch-glow{position:absolute;inset:8% -14% -4%;background:radial-gradient(closest-side,rgba(250,190,47,.28),transparent);z-index:-1}
+  @media (prefers-reduced-motion:no-preference){
+    .arch{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+    @keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
   }
-  header{
-    background:var(--navy); color:var(--stone50); padding:40px 20px 32px; text-align:center;
+
+  /* ---------- verse ---------- */
+  .verse{background:var(--navy800);color:var(--onNavy);text-align:center;padding:44px 20px 40px;border-top:1px solid rgba(250,190,47,.25)}
+  .verse q{display:block;quotes:none;font-family:'Amiri',serif;font-size:clamp(22px,2.8vw,32px);line-height:1.9;color:var(--gold);max-width:30ch;margin:0 auto}
+  .verse cite{display:block;margin-top:8px;font-style:normal;font-size:15px;color:var(--navy500)}
+  .verse .tr{display:block;max-width:56ch;margin:10px auto 0;font-size:15px;color:#B9C3CF}
+
+  /* ---------- sections ---------- */
+  section{padding:76px 0}
+  .head{max-width:640px;margin-bottom:38px}
+  .head h2{font-size:clamp(27px,3.4vw,38px);line-height:1.25;margin:0 0 8px;font-weight:800}
+  .head p{margin:0;color:var(--muted);font-size:18px}
+
+  /* steps: a real sequence, joined by a path */
+  .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative}
+  .steps::before{content:"";position:absolute;top:31px;inset-inline:16% 16%;border-top:2px dashed var(--stone300);z-index:0}
+  .step{position:relative;z-index:1;background:var(--stone50);border:1px solid var(--stone200);border-radius:22px;padding:0 24px 26px;margin-top:31px;display:flex;flex-direction:column}
+  .num{width:62px;height:62px;margin:-31px auto 14px;clip-path:var(--oct);background:var(--navy900);color:var(--gold);display:grid;place-items:center;font-weight:800;font-size:24px;position:relative}
+  .num::after{content:"";position:absolute;inset:3px;clip-path:var(--oct);border:0;background:transparent;box-shadow:inset 0 0 0 2px rgba(250,190,47,.5)}
+  .step h3{margin:0 0 6px;font-size:21px;text-align:center}
+  .step p{margin:0 0 20px;color:var(--muted);text-align:center;flex:1}
+  .step .btn{align-self:center;font-size:16px;padding:11px 22px}
+  .step.alt .btn{background:var(--navy900);color:var(--onNavy);box-shadow:0 6px 0 #0A1626}
+  .step.alt .btn:hover{box-shadow:0 4px 0 #0A1626}
+  .warn{display:flex;gap:14px;align-items:flex-start;margin-top:30px;background:var(--goldSoft);border:1px solid #F3D88A;border-radius:16px;padding:16px 20px;max-width:760px}
+  .warn svg{width:26px;height:26px;flex:none;color:var(--gold700);margin-top:2px}
+  .warn p{margin:0}
+
+  /* gallery */
+  .gallery-sec{background:var(--navy900) var(--star);color:var(--onNavy);overflow:hidden}
+  .gallery-sec .head p{color:#B9C3CF}
+  .strip{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 26px;margin:0 -20px;scrollbar-width:thin;scrollbar-color:var(--navy700) transparent}
+  .shot{flex:0 0 212px;scroll-snap-align:start;margin:0}
+  .phone{background:#0A1626;border-radius:30px;padding:8px;box-shadow:0 0 0 1px rgba(244,239,230,.12),0 18px 40px rgba(0,0,0,.4)}
+  .phone img{border-radius:23px;aspect-ratio:9/20;width:100%;height:auto;background:var(--navy800)}
+  .shot figcaption{margin-top:12px;text-align:center;font-weight:700;font-size:16px}
+  .shot figcaption small{display:block;font-weight:400;color:var(--navy500);font-size:14px;line-height:1.5}
+  .hint{font-size:14px;color:var(--navy500);margin:-6px 0 0}
+
+  /* feedback + faq */
+  .two{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+  .ask{background:var(--oliveSoft);border-radius:24px;padding:30px 28px;position:sticky;top:20px}
+  .ask h2{margin:0 0 10px;font-size:26px;line-height:1.3}
+  .ask ul{margin:0 0 22px;padding-inline-start:20px;color:#3E4A2B}
+  .ask li{margin:6px 0}
+  .ask .btn{background:var(--olive);color:#fff;box-shadow:0 6px 0 #4D5932;font-size:16px}
+  .ask .btn:hover{box-shadow:0 4px 0 #4D5932}
+  .faq h2{font-size:clamp(25px,3vw,32px);margin:0 0 18px}
+  details{border-bottom:1px solid var(--stone300);padding:4px 0}
+  summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center;font-weight:700;font-size:18px;padding:14px 0}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"";width:12px;height:12px;flex:none;border:solid var(--gold700);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);transition:transform .2s ease-out;margin-top:-6px}
+  details[open] summary::after{transform:rotate(-135deg);margin-top:6px}
+  details p{margin:0 0 16px;color:var(--muted)}
+
+  footer{background:var(--navy900);color:#B9C3CF;padding:34px 0 40px;font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+  footer nav{display:flex;flex-wrap:wrap;gap:18px}
+  footer a{color:var(--onNavy)}
+
+  @media (max-width:880px){
+    .hero-grid{grid-template-columns:1fr;gap:8px;padding-top:6px}
+    .arch-wrap{order:-1;width:min(74%,300px)}
+    .hero-copy{padding-bottom:56px;text-align:center}
+    .hero p.sub{margin-inline:auto}
+    .cta-row,.facts{justify-content:center}
+    .steps{grid-template-columns:1fr;gap:6px}
+    .steps::before{top:0;bottom:0;inset-inline:auto;inset-inline-start:50%;border-top:0;border-inline-start:2px dashed var(--stone300)}
+    .two{grid-template-columns:1fr;gap:40px}
+    .ask{position:static}
+    section{padding:58px 0}
   }
-  header .mark{
-    width:56px;height:56px;margin:0 auto 14px;border-radius:14px;
-    background:var(--gold);color:var(--navy);display:flex;align-items:center;
-    justify-content:center;font-weight:700;font-size:24px;
+  @media (max-width:420px){
+    body{font-size:16px}
+    .brand span{display:none}
+    .shot{flex-basis:180px}
+    .step{padding:0 18px 22px}
   }
-  header h1{margin:0;font-size:26px;font-weight:700}
-  header p{margin:6px 0 0;opacity:.75;font-size:15px}
-  .langbar{display:flex;gap:8px;justify-content:center;margin-top:18px}
-  .langbar button{
-    font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;
-    padding:7px 20px;border-radius:999px;border:1px solid rgba(250,247,240,.35);
-    background:transparent;color:var(--stone50);transition:.15s;
-  }
-  .langbar button[aria-pressed="true"]{background:var(--gold);color:var(--navy);border-color:var(--gold)}
-  main{max-width:780px;margin:0 auto;padding:28px 20px 60px}
-  article{
-    background:var(--stone50);border:1px solid var(--stone200);
-    border-radius:16px;padding:32px 28px;
-  }
-  h2{font-size:20px;margin:34px 0 10px;color:var(--navy);border-top:1px solid var(--stone200);padding-top:22px}
-  article > h2:first-of-type{border-top:0;padding-top:0;margin-top:8px}
-  ul{padding-inline-start:22px;margin:10px 0}
-  li{margin:6px 0}
-  a{color:var(--olive)}
-  strong{color:var(--navy)}
-  .updated{
-    display:inline-block;background:var(--stone200);color:var(--muted);
-    padding:5px 14px;border-radius:999px;font-size:14px;margin-bottom:8px;
-  }
-  .note{
-    background:#FBF3D9;border:1px solid var(--gold);border-radius:12px;
-    padding:14px 18px;margin:18px 0;font-size:16px;
-  }
-  footer{text-align:center;color:var(--muted);font-size:14px;padding:0 20px 44px}
-  footer a{margin:0 8px}
-  [hidden]{display:none !important}
-  [lang="en"]{direction:ltr;text-align:left}
-  [lang="en"] ul{padding-inline-start:22px}
-  .steps{list-style:none;padding:0;margin:18px 0 0;counter-reset:s}
-  .steps li{
-    counter-increment:s;position:relative;margin:0 0 14px;
-    background:#fff;border:1px solid var(--stone200);border-radius:14px;
-    padding:18px 20px 18px 20px;padding-inline-start:70px;
-  }
-  .steps li::before{
-    content:counter(s);position:absolute;inset-inline-start:18px;top:18px;
-    width:36px;height:36px;border-radius:10px;background:var(--navy);color:var(--gold);
-    display:flex;align-items:center;justify-content:center;font-weight:700;
-  }
-  .steps h3{margin:0 0 4px;font-size:18px;color:var(--navy)}
-  .steps p{margin:0 0 12px;color:var(--muted);font-size:16px}
-  .btn{
-    display:inline-block;text-decoration:none;font-weight:700;font-size:16px;
-    background:var(--gold);color:var(--navy);padding:10px 22px;border-radius:12px;
-    transition:transform .15s ease-out, box-shadow .15s ease-out;
-  }
-  .btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(22,50,79,.18)}
-  .btn:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
-  @media (prefers-reduced-motion: reduce){.btn{transition:none}.btn:hover{transform:none}}
-  .lead{font-size:18px;margin:0}
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;scroll-behavior:auto !important}}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="mark">م</div>
-  <h1>مسرى · Masra</h1>
-  <p>النسخة التجريبية · Beta</p>
-  <div class="langbar">
-    <button id="btn-ar" aria-pressed="true">العربية</button>
-    <button id="btn-en" aria-pressed="false">English</button>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <clipPath id="archClip" clipPathUnits="objectBoundingBox">
+    <path d="M0,1 V0.43 C0,0.22 0.28,0.07 0.5,0 C0.72,0.07 1,0.22 1,0.43 V1 Z"/>
+  </clipPath>
+</svg>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="index.html"><img src="beta-assets/logo.png" width="271" height="204" alt="مسرى · Masra"></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button id="btn-ar" aria-pressed="true">العربية</button>
+        <button id="btn-en" aria-pressed="false">English</button>
+      </div>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="badge"><i></i><span lang="ar">النسخة التجريبية مفتوحة</span><span lang="en">The beta is open</span></span>
+        <h1><span lang="ar">جرّب مسرى قبل أن يصل إلى الجميع</span><span lang="en">Try Masra before everyone else</span></h1>
+        <p class="sub"><span lang="ar">تطبيق عن القدس والمسجد الأقصى: أخبار، دورات، مقالات، فتاوى، وتحدٍّ يومي. ساعدنا نجهّزه للإطلاق.</span><span lang="en">An app about Jerusalem and Al-Aqsa: news, courses, articles, fatwas and a daily challenge. Help us get it ready for launch.</span></p>
+        <div class="cta-row">
+          <a class="btn" href="#join"><span lang="ar">انضم الآن</span><span lang="en">Join now</span>
+            <svg class="flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="ghost" href="#inside"><span lang="ar">شاهد التطبيق</span><span lang="en">See the app</span></a>
+        </div>
+        <div class="facts">
+          <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 9.2 19.3 6a.4.4 0 0 0-.7-.4l-1.9 3.2a11 11 0 0 0-9.4 0L5.4 5.6a.4.4 0 0 0-.7.4l1.8 3.2A10 10 0 0 0 2 17h20a10 10 0 0 0-4.5-7.8ZM7.5 14.3a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm9 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg><span lang="ar">أندرويد</span><span lang="en">Android</span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span lang="ar">عربي وإنجليزي</span><span lang="en">Arabic and English</span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg><span lang="ar">دقيقتان للانضمام</span><span lang="en">Two minutes to join</span></span>
+        </div>
+      </div>
+      <div class="arch-wrap">
+        <div class="arch-glow"></div>
+        <div class="arch"><img src="beta-assets/dome.webp" width="760" height="1160" alt="قبة الصخرة في المسجد الأقصى · The Dome of the Rock at Al-Aqsa" fetchpriority="high"></div>
+      </div>
+    </div>
   </div>
 </header>
 
+<div class="verse">
+  <q lang="ar">سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى</q>
+  <q lang="en" dir="rtl">سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى</q>
+  <span class="tr" lang="en">"Glory be to the One who took His servant by night from the Sacred Mosque to the Farthest Mosque." The app's name, Masra, comes from this night journey.</span>
+  <cite><span lang="ar">سورة الإسراء، الآية ١</span><span lang="en">Surah Al-Isra, 17:1</span></cite>
+</div>
+
 <main>
+  <section id="join">
+    <div class="wrap">
+      <div class="head">
+        <h2><span lang="ar">ثلاث خطوات للانضمام</span><span lang="en">Three steps to join</span></h2>
+        <p><span lang="ar">بالترتيب، ومن نفس الحساب. لا تحتاج إلى أي تسجيل إضافي.</span><span lang="en">In order, from the same account. No extra sign-up needed.</span></p>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <div class="num" aria-hidden="true"><span lang="ar">١</span><span lang="en">1</span></div>
+          <h3><span lang="ar">انضم إلى مجموعة المختبرين</span><span lang="en">Join the tester group</span></h3>
+          <p><span lang="ar">اضغط «الانضمام إلى المجموعة». المجموعة لا ترسل رسائل، هي فقط تمنحك صلاحية التنزيل.</span><span lang="en">Tap "Join group". The group sends no emails; it only gives you access to the download.</span></p>
+          <a class="btn" href="https://groups.google.com/g/masratesters" target="_blank" rel="noopener"><span lang="ar">انضم إلى المجموعة</span><span lang="en">Join the group</span></a>
+        </li>
+        <li class="step alt">
+          <div class="num" aria-hidden="true"><span lang="ar">٢</span><span lang="en">2</span></div>
+          <h3><span lang="ar">فعّل الاختبار</span><span lang="en">Opt in to the test</span></h3>
+          <p><span lang="ar">بعد الانضمام بدقائق، افتح الرابط واضغط «أصبح مختبِرًا».</span><span lang="en">A few minutes after joining, open the link and tap "Become a tester".</span></p>
+          <a class="btn" href="https://play.google.com/apps/testing/com.masraappjo.masra" target="_blank" rel="noopener"><span lang="ar">أصبح مختبِرًا</span><span lang="en">Become a tester</span></a>
+        </li>
+        <li class="step">
+          <div class="num" aria-hidden="true"><span lang="ar">٣</span><span lang="en">3</span></div>
+          <h3><span lang="ar">ثبّت التطبيق</span><span lang="en">Install the app</span></h3>
+          <p><span lang="ar">ثبّت مسرى من Google Play. إن لم يظهر فورًا، انتظر قليلًا وحاول مجددًا.</span><span lang="en">Install Masra from Google Play. If it doesn't show up right away, wait a little and try again.</span></p>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.masraappjo.masra" target="_blank" rel="noopener"><span lang="ar">افتح في Google Play</span><span lang="en">Open in Google Play</span></a>
+        </li>
+      </ol>
+      <div class="warn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+        <p><span lang="ar">استخدم <strong>نفس حساب Google</strong> المسجّل في متجر Play على هاتفك في الخطوات الثلاث، وإلا لن يظهر لك التطبيق.</span><span lang="en">Use <strong>the same Google account</strong> your phone's Play Store uses for all three steps, or the app won't show up for you.</span></p>
+      </div>
+    </div>
+  </section>
 
-<article id="doc-ar" lang="ar" dir="rtl">
-  <p class="lead">جرّب مسرى قبل إطلاقه على Google Play. ثلاث خطوات، على أندرويد فقط.</p>
-  <div class="note">استخدم <strong>نفس حساب Google</strong> المسجّل في متجر Play على هاتفك في كل الخطوات.</div>
-  <ol class="steps">
-    <li>
-      <h3>انضم إلى مجموعة المختبرين</h3>
-      <p>افتح المجموعة واضغط «الانضمام إلى المجموعة». لن تصلك رسائل منها.</p>
-      <a class="btn" href="https://groups.google.com/g/masratesters" target="_blank" rel="noopener">انضم إلى المجموعة</a>
-    </li>
-    <li>
-      <h3>فعّل الاختبار</h3>
-      <p>بعد الانضمام بدقائق، افتح الرابط واضغط «أصبح مختبِرًا».</p>
-      <a class="btn" href="https://play.google.com/apps/testing/com.masraappjo.masra" target="_blank" rel="noopener">أصبح مختبِرًا</a>
-    </li>
-    <li>
-      <h3>ثبّت التطبيق</h3>
-      <p>ثبّت مسرى من Google Play. قد يستغرق ظهوره بعض الوقت بعد الخطوة السابقة.</p>
-      <a class="btn" href="https://play.google.com/store/apps/details?id=com.masraappjo.masra" target="_blank" rel="noopener">افتح في Google Play</a>
-    </li>
-  </ol>
-  <p>لإيقاف الاختبار: افتح رابط الخطوة ٢ واضغط «مغادرة البرنامج»، أو غادر المجموعة. ملاحظاتك تصلنا على <a href="mailto:masra.app@gmail.com">masra.app@gmail.com</a>.</p>
-</article>
+  <section id="inside" class="gallery-sec">
+    <div class="wrap">
+      <div class="head">
+        <h2><span lang="ar">ما الذي ستجرّبه</span><span lang="en">What you'll be testing</span></h2>
+        <p><span lang="ar">لقطات من النسخة الحالية للتطبيق.</span><span lang="en">Screens from the current build.</span></p>
+      </div>
+      <div class="strip" lang="ar" tabindex="0" aria-label="لقطات التطبيق">
+        <figure class="shot"><div class="phone"><img src="beta-assets/ar-1-home.webp" width="360" height="800" loading="lazy" alt="الشاشة الرئيسية"></div><figcaption>الرئيسية<small>سؤال اليوم والحدث القادم</small></figcaption></figure>
+        <figure class="shot"><div class="phone"><img src="beta-assets/ar-4-challenge.webp" width="360" height="800" loading="lazy" alt="التحدي اليومي"></div><figcaption>التحدي اليومي<small>سؤال كل يوم لمدة ٣٠ يومًا</small></figcaption></figure>
+        <figure class="shot"><div class="phone"><img src="beta-assets/ar-2-news.webp" width="360" height="800" loading="lazy" alt="الأخبار"></div><figcaption>الأخبار<small>آخر أخبار القدس</small></figcaption></figure>
+        <figure class="shot"><div class="phone"><img src="beta-assets/ar-3-courses.webp" width="360" height="800" loading="lazy" alt="الدورات"></div><figcaption>الدورات<small>دروس مرئية ومقروءة</small></figcaption></figure>
+        <figure class="shot"><div class="phone"><img src="beta-assets/ar-6-leaderboard.webp" width="360" height="800" loading="lazy" alt="لوحة الشرف"></div><figcaption>لوحة الشرف<small>النقاط والترتيب</small></figcaption></figure>
+        <figure class="shot"><div class="phone"><img src="beta-assets/ar-8-night.webp" width="360" height="800" loading="lazy" alt="الوضع الليلي"></div><figcaption>الوضع الليلي<small>لقراءة مريحة ليلًا</small></figcaption></figure>
+      </div>
+      <div class="strip" lang="en" tabindex="0" aria-label="App screens">
+        <figure class="shot"><div class="phone"><img src="beta-assets/en-1-home.webp" width="360" height="800" loading="lazy" alt="Home screen"></div><figcaption>Home<small>Today's question and the next event</small></figcaption></figure>
+        <figure class="shot"><div class="phone"><img src="beta-assets/en-4-challenge.webp" width="360" height="800" loading="lazy" alt="Daily challenge"></div><figcaption>Daily challenge<small>One question a day for 30 days</small></figcaption></figure>
+        <figure class="shot"><div class="phone"><img src="beta-assets/en-2-news.webp" width="360" height="800" loading="lazy" alt="News"></div><figcaption>News<small>The latest from Jerusalem</small></figcaption></figure>
+        <figure class="shot"><div class="phone"><img src="beta-assets/en-3-courses.webp" width="360" height="800" loading="lazy" alt="Courses"></div><figcaption>Courses<small>Video and reading lessons</small></figcaption></figure>
+        <figure class="shot"><div class="phone"><img src="beta-assets/en-6-leaderboard.webp" width="360" height="800" loading="lazy" alt="Leaderboard"></div><figcaption>Leaderboard<small>Points and ranks</small></figcaption></figure>
+        <figure class="shot"><div class="phone"><img src="beta-assets/en-8-night.webp" width="360" height="800" loading="lazy" alt="Night mode"></div><figcaption>Night mode<small>Easy reading after dark</small></figcaption></figure>
+      </div>
+      <p class="hint"><span lang="ar">اسحب لرؤية المزيد</span><span lang="en">Swipe to see more</span></p>
+    </div>
+  </section>
 
-<article id="doc-en" lang="en" dir="ltr" hidden>
-  <p class="lead">Try Masra before it launches on Google Play. Three steps, Android only.</p>
-  <div class="note">Use <strong>the same Google account</strong> that your phone's Play Store uses for every step.</div>
-  <ol class="steps">
-    <li>
-      <h3>Join the tester group</h3>
-      <p>Open the group and tap "Join group". It won't send you emails.</p>
-      <a class="btn" href="https://groups.google.com/g/masratesters" target="_blank" rel="noopener">Join the group</a>
-    </li>
-    <li>
-      <h3>Opt in to the test</h3>
-      <p>A few minutes after joining, open the link and tap "Become a tester".</p>
-      <a class="btn" href="https://play.google.com/apps/testing/com.masraappjo.masra" target="_blank" rel="noopener">Become a tester</a>
-    </li>
-    <li>
-      <h3>Install the app</h3>
-      <p>Install Masra from Google Play. It can take a little while to appear after step 2.</p>
-      <a class="btn" href="https://play.google.com/store/apps/details?id=com.masraappjo.masra" target="_blank" rel="noopener">Open in Google Play</a>
-    </li>
-  </ol>
-  <p>To stop testing, open the step 2 link and tap "Leave the program", or leave the group. Send feedback to <a href="mailto:masra.app@gmail.com">masra.app@gmail.com</a>.</p>
-</article>
+  <section>
+    <div class="wrap two">
+      <aside class="ask">
+        <h2><span lang="ar">ما الذي نحتاجه منك</span><span lang="en">What we need from you</span></h2>
+        <ul lang="ar">
+          <li>استخدم التطبيق كعادتك لبضعة أيام.</li>
+          <li>أخبرنا بأي شيء لا يعمل أو غير واضح.</li>
+          <li>أرسل لقطة شاشة إن استطعت، فهي توفّر علينا الكثير.</li>
+        </ul>
+        <ul lang="en">
+          <li>Use the app as you normally would for a few days.</li>
+          <li>Tell us about anything that breaks or is unclear.</li>
+          <li>Send a screenshot if you can. It saves us a lot of time.</li>
+        </ul>
+        <a class="btn" href="mailto:masra.app@gmail.com?subject=Masra%20beta"><span lang="ar">أرسل ملاحظاتك</span><span lang="en">Send feedback</span></a>
+      </aside>
 
+      <div class="faq">
+        <h2><span lang="ar">أسئلة شائعة</span><span lang="en">Questions</span></h2>
+        <details lang="ar"><summary>لماذا أنضم إلى مجموعة Google؟</summary><p>Google Play يسمح بتنزيل النسخة التجريبية فقط للحسابات المضافة إليها. الانضمام إلى المجموعة يضيف حسابك تلقائيًا.</p></details>
+        <details lang="ar"><summary>هل ستصلني رسائل من المجموعة؟</summary><p>لا. النشر في المجموعة مقتصر على المشرفين، ولا يرى أحد قائمة الأعضاء غيرهم.</p></details>
+        <details lang="ar"><summary>فتحت رابط المتجر ولم أجد التطبيق</summary><p>تأكد أن حساب المتجر على هاتفك هو نفس الحساب الذي انضممت به، ثم افتح رابط الخطوة ٢ مرة أخرى. قد يحتاج الأمر بضع دقائق بعد الانضمام.</p></details>
+        <details lang="ar"><summary>هل يعمل على iPhone؟</summary><p>النسخة التجريبية حاليًا لأندرويد فقط.</p></details>
+        <details lang="ar"><summary>كيف أوقف الاختبار؟</summary><p>افتح رابط الخطوة ٢ واضغط «مغادرة البرنامج»، أو غادر المجموعة. ستنتقل إلى النسخة العامة عند صدورها.</p></details>
+
+        <details lang="en"><summary>Why do I need to join a Google Group?</summary><p>Google Play only lets accounts on the test list download a beta. Joining the group puts your account on that list automatically.</p></details>
+        <details lang="en"><summary>Will the group email me?</summary><p>No. Only the managers can post, and only they can see who's in the group.</p></details>
+        <details lang="en"><summary>I opened the store link and the app isn't there</summary><p>Check that your phone's Play Store account is the one you joined with, then open the step 2 link again. It can take a few minutes after joining.</p></details>
+        <details lang="en"><summary>Does it work on iPhone?</summary><p>The beta is Android only for now.</p></details>
+        <details lang="en"><summary>How do I stop testing?</summary><p>Open the step 2 link and tap "Leave the program", or leave the group. You'll move to the public version when it's out.</p></details>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
-  <a href="index.html">الرئيسية · Home</a>·
-  <a href="privacy.html">الخصوصية · Privacy</a>
+  <div class="wrap">
+    <nav>
+      <a href="index.html"><span lang="ar">الرئيسية</span><span lang="en">Home</span></a>
+      <a href="privacy.html"><span lang="ar">الخصوصية</span><span lang="en">Privacy</span></a>
+      <a href="terms.html"><span lang="ar">شروط الاستخدام</span><span lang="en">Terms</span></a>
+    </nav>
+    <span><span lang="ar">صورة قبة الصخرة: Wikimedia Commons (CC0)</span><span lang="en">Dome of the Rock photo: Wikimedia Commons (CC0)</span></span>
+  </div>
 </footer>
+
 <script>
   (function () {
-    var ar = document.getElementById('doc-ar'), en = document.getElementById('doc-en');
-    var bAr = document.getElementById('btn-ar'), bEn = document.getElementById('btn-en');
+    var bAr = document.getElementById('btn-ar'), bEn = document.getElementById('btn-en'), root = document.documentElement;
     function set(lang) {
       var isAr = lang === 'ar';
-      ar.hidden = !isAr; en.hidden = isAr;
+      root.lang = lang; root.dir = isAr ? 'rtl' : 'ltr';
       bAr.setAttribute('aria-pressed', String(isAr));
       bEn.setAttribute('aria-pressed', String(!isAr));
-      document.documentElement.lang = lang;
-      document.documentElement.dir = isAr ? 'rtl' : 'ltr';
       try { localStorage.setItem('masra-lang', lang); } catch (e) {}
     }
     bAr.addEventListener('click', function () { set('ar'); });
     bEn.addEventListener('click', function () { set('en'); });
     var saved = null;
     try { saved = localStorage.getItem('masra-lang'); } catch (e) {}
-    set(saved || 'ar');
+    set(saved === 'en' ? 'en' : 'ar');
   })();
 </script>
-
 </body>
 </html>
