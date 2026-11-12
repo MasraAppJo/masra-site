@@ -77,7 +77,7 @@
 <main>
 
 <article id="doc-ar" lang="ar" dir="rtl">
-  <span class="updated">آخر تحديث: ٢ آب/أغسطس ٢٠٢٦</span>
+  <span class="updated">آخر تحديث: ١٢ تشرين الثاني/نوفمبر ٢٠٢٦</span>
 
   <p>يحترم تطبيق <strong>مسرى</strong> («نحن»، «التطبيق») خصوصيتك. توضّح هذه السياسة البيانات التي نجمعها، وسبب جمعها، وما هي حقوقك.</p>
 
@@ -85,8 +85,9 @@
   <p>عند إنشاء حساب، نخزّن:</p>
   <ul>
     <li><strong>البريد الإلكتروني</strong> — لتسجيل الدخول واستعادة الحساب</li>
-    <li><strong>الاسم الظاهر</strong> — يظهر داخل التطبيق وللمشرفين</li>
-    <li><strong>بيانات المصادقة</strong> — مشفّرة ولا يمكننا الاطلاع عليها كنص صريح (تُدار عبر Supabase Auth)</li>
+    <li><strong>الاسم الظاهر واسم المستخدم</strong> — يظهران داخل التطبيق، ويظهر الاسم الظاهر وصورتك في لوحة المتصدّرين لبقية المستخدمين</li>
+    <li><strong>الصورة الشخصية</strong> (اختيارية) — صورة ترفعها أنت، أو صورة حساب Google إن سجّلت الدخول عبر Google</li>
+    <li><strong>بيانات المصادقة</strong> — كلمة المرور مشفّرة (hash) ولا يمكننا الاطلاع عليها كنص صريح</li>
   </ul>
   <p>وعند استخدامك للتطبيق، نخزّن:</p>
   <ul>
@@ -95,12 +96,14 @@
     <li><strong>إجابات التحديات</strong> — لاحتساب نتائج المسابقات اليومية</li>
     <li><strong>النقاط والسلسلة اليومية</strong> — إحصاءات التحفيز الخاصة بك</li>
     <li><strong>تفضيلات الإعدادات</strong> — اللغة وحجم الخط وتنبيهات الإشعارات (تُحفظ على جهازك فقط)</li>
+    <li><strong>رمز الإشعارات (FCM)</strong> — معرّف يولّده Firebase لجهازك كي نرسل لك الإشعارات، ويُحذف عند تسجيل الخروج</li>
+    <li><strong>رسائل الدعم والبلاغات</strong> — ما تكتبه عند مراسلة الدعم أو الإبلاغ عن محتوى</li>
   </ul>
   <p>ولا نجمع:</p>
   <ul>
-    <li>اسمك الحقيقي أو رقم هاتفك أو عنوانك</li>
+    <li>رقم هاتفك أو عنوانك</li>
     <li>موقعك الجغرافي (إلا إذا اخترت تفعيل ميزة القبلة مستقبلًا)</li>
-    <li>جهات اتصالك أو صورك أو ملفاتك</li>
+    <li>جهات اتصالك أو صورك أو ملفاتك (عدا الصورة الشخصية التي تختار رفعها)</li>
   </ul>
 
   <h2>١-أ. الإعلانات</h2>
@@ -117,12 +120,12 @@
   <ul>
     <li><strong>المصادقة وميزات الحساب</strong>: البريد وكلمة المرور لتسجيل دخولك</li>
     <li><strong>التخصيص</strong>: ربط تقدّمك ومحفوظاتك بحسابك</li>
-    <li><strong>تحسين التطبيق</strong>: مؤشرات إجمالية غير معرِّفة للهوية (وتقارير أعطال مجهولة إن وافقت عليها)</li>
-    <li><strong>الإشراف على المحتوى</strong>: لإزالة المشاركات المسيئة أو الخارجة عن الموضوع</li>
+    <li><strong>الإشعارات</strong>: إرسال تذكيرات التحديات والأخبار إن سمحت بها</li>
+    <li><strong>الدعم والإشراف</strong>: الرد على رسائلك ومراجعة البلاغات</li>
   </ul>
 
   <h2>٣. أين تُحفظ البيانات</h2>
-  <p>تُخزَّن جميع البيانات على <strong>Supabase</strong> (قاعدة بيانات PostgreSQL والتخزين) في منطقتي الاتحاد الأوروبي/الولايات المتحدة. وتضمن سياسات أمان الصفوف (RLS) أن:</p>
+  <p>تُخزَّن جميع البيانات في قاعدة بيانات PostgreSQL على خادم مستأجر نديره بأنفسنا، وتنتقل كل الاتصالات عبر HTTPS مشفّر. وتضمن سياسات أمان الصفوف (RLS) أن:</p>
   <ul>
     <li>تطّلع أنت على <strong>ملفك وبياناتك فقط</strong> — الحساب والمحفوظات والتقدّم والنقاط</li>
     <li>حسابات المشرفين وحدها يمكنها الاطلاع على البيانات الإجمالية للمستخدمين</li>
@@ -131,7 +134,8 @@
 
   <h2>٤. أطراف ثالثة</h2>
   <ul>
-    <li><strong>Supabase Inc.</strong> — معالج قاعدة البيانات والمصادقة وتخزين الملفات</li>
+    <li><strong>Google Sign-In</strong> — تسجيل الدخول بحساب Google إن اخترته (نستلم البريد والاسم والصورة فقط)</li>
+    <li><strong>Firebase Cloud Messaging (Google)</strong> — إيصال الإشعارات إلى جهازك</li>
     <li><strong>Google AdMob</strong> — عرض الإعلانات (انظر البند ١-أ)</li>
     <li><strong>Google Fonts</strong> — تحميل الخط العربي (Cairo) أثناء التشغيل</li>
     <li><strong>Aladhan API / Hebcal</strong> — بيانات التقويم الهجري والإسلامي العامة (لا تُرسل بيانات شخصية)</li>
@@ -143,7 +147,7 @@
   <h2>٥. حقوقك</h2>
   <ul>
     <li><strong>الاطلاع على بياناتك</strong>: يمكنك طلب نسخة في أي وقت عبر البريد أدناه</li>
-    <li><strong>حذف حسابك</strong>: من <strong>الإعدادات ← حذف الحساب</strong> مباشرةً داخل التطبيق. يؤدي ذلك إلى إزالة حسابك وكل بياناتك نهائيًا (الملف الشخصي، المحفوظات، التقدّم، النقاط، إجابات التحديات). الإجراء فوري ولا يمكن التراجع عنه.</li>
+    <li><strong>حذف حسابك</strong>: من <strong>الإعدادات ← حذف الحساب</strong> مباشرةً داخل التطبيق. يؤدي ذلك إلى إزالة حسابك وكل بياناتك نهائيًا (الملف الشخصي، المحفوظات، التقدّم، النقاط، إجابات التحديات). الإجراء فوري ولا يمكن التراجع عنه. ويمكنك أيضًا طلب الحذف من خارج التطبيق عبر <a href="https://masraappjo.github.io/masra-site/delete-account.html">صفحة حذف الحساب</a>.</li>
     <li><strong>تصحيح بياناتك</strong>: يمكنك تعديل اسمك وبريدك من الإعدادات</li>
     <li><strong>سحب الموافقة</strong>: حذف الحساب يزيل جميع بياناتك فورًا، وتُمحى النسخ الاحتياطية المشفّرة خلال ٣٠ يومًا</li>
   </ul>
@@ -156,12 +160,12 @@
 
   <h2>٨. التواصل</h2>
   <p>لأي استفسار عن الخصوصية أو طلب بيانات أو شكوى:</p>
-  <p><strong>البريد الإلكتروني:</strong> <a href="mailto:privacy@masra.app">privacy@masra.app</a></p>
+  <p><strong>البريد الإلكتروني:</strong> <a href="mailto:masra.app@gmail.com">masra.app@gmail.com</a></p>
   <p>وإذا لم تكن راضيًا عن ردّنا، فيمكنك التواصل مع هيئة حماية البيانات في بلدك.</p>
 </article>
 
 <article id="doc-en" lang="en" dir="ltr" hidden>
-  <span class="updated">Last updated: 2 August 2026</span>
+  <span class="updated">Last updated: 12 November 2026</span>
 
   <p>Masra ("we", "us", "the app") respects your privacy. This policy explains what data we collect, why, and what your rights are.</p>
 
@@ -169,8 +173,9 @@
   <p>When you create an account, we store:</p>
   <ul>
     <li><strong>Email address</strong> — for sign-in and account recovery</li>
-    <li><strong>Display name</strong> — shown in the app and to admins</li>
-    <li><strong>Authentication credentials</strong> — hashed and never accessible to us in plaintext (handled by Supabase Auth)</li>
+    <li><strong>Display name and username</strong> — shown in the app; your display name and photo appear on the leaderboard to other users</li>
+    <li><strong>Profile photo</strong> (optional) — one you upload, or your Google account photo if you sign in with Google</li>
+    <li><strong>Authentication credentials</strong> — passwords are hashed and never accessible to us in plaintext</li>
   </ul>
   <p>When you use the app, we store:</p>
   <ul>
@@ -179,12 +184,14 @@
     <li><strong>Challenge answers</strong> — for daily quiz scoring</li>
     <li><strong>Points &amp; streak</strong> — your gamification stats</li>
     <li><strong>Settings preferences</strong> — language, text size, notification toggles (stored on your device only)</li>
+    <li><strong>Push token (FCM)</strong> — an identifier Firebase generates for your device so we can send notifications; deleted when you sign out</li>
+    <li><strong>Support messages and reports</strong> — what you write when contacting support or reporting content</li>
   </ul>
   <p>We do <strong>not</strong> collect:</p>
   <ul>
-    <li>Your real name, phone number, or address</li>
+    <li>Your phone number or address</li>
     <li>Your location (unless you opt in to a future Qibla feature)</li>
-    <li>Your contacts, photos, or files</li>
+    <li>Your contacts, photos, or files (other than a profile photo you choose to upload)</li>
   </ul>
 
   <h2>1a. Advertising</h2>
@@ -201,12 +208,12 @@
   <ul>
     <li><strong>Authentication &amp; account features</strong>: email + password to sign you in</li>
     <li><strong>Personalisation</strong>: progress and bookmarks tied to your account</li>
-    <li><strong>App improvement</strong>: aggregate, non-personally-identifiable metrics (anonymous crash reports if you opt in)</li>
-    <li><strong>Content moderation</strong>: to remove abusive or off-topic submissions</li>
+    <li><strong>Notifications</strong>: challenge reminders and news, if you allow them</li>
+    <li><strong>Support and moderation</strong>: answering your messages and reviewing reports</li>
   </ul>
 
   <h2>3. Where it lives</h2>
-  <p>All data is stored on <strong>Supabase</strong> (PostgreSQL + Storage) in the EU/US region. Row-Level Security (RLS) policies ensure:</p>
+  <p>All data is stored in a PostgreSQL database on a rented server we operate ourselves, and all traffic travels over encrypted HTTPS. Row-Level Security (RLS) policies ensure:</p>
   <ul>
     <li>You can read <strong>only your own</strong> profile, bookmarks, progress, and points</li>
     <li>Only admin accounts can read aggregate user data</li>
@@ -215,7 +222,8 @@
 
   <h2>4. Third parties</h2>
   <ul>
-    <li><strong>Supabase Inc.</strong> — database, authentication and file storage processor</li>
+    <li><strong>Google Sign-In</strong> — optional sign-in with your Google account (we receive only your email, name and photo)</li>
+    <li><strong>Firebase Cloud Messaging (Google)</strong> — delivers notifications to your device</li>
     <li><strong>Google AdMob</strong> — serves banner advertisements (see section 1a)</li>
     <li><strong>Google Fonts</strong> — serves the Arabic typeface (Cairo) at runtime</li>
     <li><strong>Aladhan API / Hebcal</strong> — public Islamic and Hijri calendar data (no personal data sent)</li>
@@ -227,7 +235,7 @@
   <h2>5. Your rights</h2>
   <ul>
     <li><strong>Access your data</strong>: request a copy at any time via the email below</li>
-    <li><strong>Delete your account</strong>: via <strong>Settings → Delete Account</strong>, directly in the app. This permanently removes your account and all associated data (profile, bookmarks, progress, points, challenge answers). The action is immediate and cannot be undone.</li>
+    <li><strong>Delete your account</strong>: via <strong>Settings → Delete Account</strong>, directly in the app. This permanently removes your account and all associated data (profile, bookmarks, progress, points, challenge answers). The action is immediate and cannot be undone. You can also request deletion outside the app on the <a href="https://masraappjo.github.io/masra-site/delete-account.html">account deletion page</a>.</li>
     <li><strong>Correct your data</strong>: edit your name and email from Settings</li>
     <li><strong>Withdraw consent</strong>: deleting your account permanently removes all your data immediately; routine encrypted backups are purged within 30 days</li>
   </ul>
@@ -240,7 +248,7 @@
 
   <h2>8. Contact</h2>
   <p>For privacy questions, data requests, or complaints:</p>
-  <p><strong>Email:</strong> <a href="mailto:privacy@masra.app">privacy@masra.app</a></p>
+  <p><strong>Email:</strong> <a href="mailto:masra.app@gmail.com">masra.app@gmail.com</a></p>
   <p>If you are not satisfied with our response, you may contact your local data protection authority.</p>
 </article>
 
